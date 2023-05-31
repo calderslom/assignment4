@@ -1,0 +1,14 @@
+package assignment4;
+
+
+public class HashFunctionA4 extends HashFunction {
+
+	private static final int hashTableSize = 9973;
+	
+	int hash(int x) {
+		x = ((x >>> 16) ^ x) * 0x45d9f3b; // >>> is unsigned right shift
+		x = ((x >>> 16) ^ x) * 0x45d9f3b;
+		x = (x >>> 16) ^ x;
+		return Math.abs(x)%hashTableSize; 
+	}
+}

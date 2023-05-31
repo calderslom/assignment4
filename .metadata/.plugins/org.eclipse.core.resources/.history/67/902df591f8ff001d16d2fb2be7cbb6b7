@@ -23,5 +23,4 @@ public class HashFunction2 extends HashFunction
             else if (i == 2) hashVal += 729*s.charAt(2);
         return hashVal%size;
     }   
-    
 }

@@ -1,0 +1,20 @@
+package assignment4;
+
+
+public class HashFunctionA4 {
+
+	/**
+     * This is an implementation of the hash function described in CPSC 331 Assignment 4
+     * <p>
+     * 
+     * @param x the hash key to be used. In this case, we can just use the integer itself
+     * 
+     */
+	public int hash(int x, int hashTableSize) {
+		x = ((x >>> 16) ^ x) * 0x45d9f3b; // >>> is unsigned right shift
+		x = ((x >>> 16) ^ x) * 0x45d9f3b;
+		x = (x >>> 16) ^ x;
+		return Math.abs(x)%hashTableSize; 
+	}
+
+}
