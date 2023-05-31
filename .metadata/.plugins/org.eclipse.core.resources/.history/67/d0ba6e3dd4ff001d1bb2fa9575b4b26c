@@ -1,0 +1,44 @@
+
+/**
+ * A tester flass for HashTableSC
+ *
+ * @author Jalal Kawahs
+ *
+ */
+
+
+import java.util.Random;
+
+public class HashTableSCTester
+{
+    static final int LAMBDA = 100; //load factor
+    static final int m = 10007; // should be a prime number
+    static final int n = LAMBDA*m; // number of items to behashed
+    public static void main(String[] args)
+    {
+        HashTableSC<HashableObject> ht;
+        Random rnd;
+        HashFunction f;
+        
+        f = new HashFunction1();
+        ht = new HashTableSC<HashableObject>(f, m);
+        rnd = new Random();
+        for (int i = 0; i < n; i++) ht.add(new HashableObject(Integer.toString(rnd.nextInt(10000000))));
+        System.out.println("Stats for function f1 in the slides");
+        ht.printStats();
+        
+        f = new HashFunction2();
+        ht = new HashTableSC<HashableObject>(f, m);
+        rnd = new Random();
+        for (int i = 0; i < n; i++) ht.add(new HashableObject(Integer.toString(rnd.nextInt(10000000))));
+        System.out.println("Stats for function f2 in the slides");
+        ht.printStats();
+        
+        f = new HashFunction3();
+        ht = new HashTableSC<HashableObject>(f, m);
+        rnd = new Random();
+        for (int i = 0; i < n; i++) ht.add(new HashableObject(Integer.toString(rnd.nextInt(10000000))));
+        System.out.println("Stats for function f3 in the slides");
+        ht.printStats();
+    }
+}
