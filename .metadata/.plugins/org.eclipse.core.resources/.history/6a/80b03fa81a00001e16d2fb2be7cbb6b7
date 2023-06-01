@@ -1,0 +1,32 @@
+package assignment4;
+
+import java.util.Random;
+
+public class Assignment4App {
+	// Strings for output
+	static final String OUTPUT_FILE = "a4_time_stamps.txt";
+	static final int ELEMENTS_SIZE = 100;
+	int[] elements = new int[ELEMENTS_SIZE];
+	public static void main(String[] args) {
+		
+		Random rand = new Random();     								// Used to generate random integers
+		
+		// Populating the "elements" array
+		for (int i = 0; i < ELEMENTS_SIZE-1; i++) {
+			elements[i] = rand.nextInt(5000);
+		}
+		
+		System.out.println("HASHBROWNS!");
+		
+		long start = System.nanoTime();
+		for (int i = 0; i < 1000000; i++) {
+			
+		}
+		long end = System.nanoTime();
+		long time = end - start;
+		System.out.println(time);
+		// the time x() took is roughly end – start
+		
+	}	// End of Main
+	
+}	// End of Class

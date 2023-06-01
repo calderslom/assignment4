@@ -1,0 +1,18 @@
+package assignment4;
+
+public class Assignment4App {
+	
+	public static void main(String[] args) {
+		
+		System.out.println("HASHBROWNS!");
+		
+		long start = System.nanoTime();
+		
+		long end = System.nanoTime();
+		long time = start - end;
+		System.out.println(time);
+		// the time x() took is roughly end – start
+		
+	}	// End of Main
+	
+}	// End of Class

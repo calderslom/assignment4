@@ -38,7 +38,7 @@ public class HashTableSC<T extends Hashable> implements HashTableInterface<T>
      * adds an item to the hashtable
      *
      * @preconsidtion: none
-     * @postcondition: item is added to the appropriate chain
+     * @postcondition: item is added to the appropriat chain
      * 
      */
     public void add(T item)
