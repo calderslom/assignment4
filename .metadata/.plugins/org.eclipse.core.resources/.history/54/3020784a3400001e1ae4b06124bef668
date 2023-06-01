@@ -1,0 +1,26 @@
+package assignment4;
+
+import java.util.HashSet;
+import java.util.Random;
+import java.util.Set;
+
+public class ArrayGenerator {
+	
+	static final int ELEMENTS_SIZE = 101;			// I know it's supposed to be 100, and it is AFTER it is populated. It was literally working fine for ages with size 100, and then started having errors when I indexed elements[99] when size was 100. 
+
+	/**
+	 * Generates an integer array of size 100 with distinct numbers in each cell and 5001 in the last cell of the array
+	 * 
+	 * @return array of int
+	 */
+	public static int[] generateElementsArray() {
+		Random rand = new Random();     												
+		int[] elements = new int[ELEMENTS_SIZE];
+		Set<Integer> distinctNumbers = new HashSet<>();
+		while (distinctNumbers.size() < ELEMENTS_SIZE -1) distinctNumbers.add(rand.nextInt(5001));	// Bound is exclusive so this generate integers [0,5000]
+		elements = distinctNumbers.stream().mapToInt(Integer::intValue).toArray();						
+		elements[99] = 5001;																		// Last cell in elements array is 5001 as described in the assignment specification
+		return elements;
+	}
+	
+}

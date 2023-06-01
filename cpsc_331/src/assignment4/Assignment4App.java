@@ -1,24 +1,34 @@
 package assignment4;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+
+
 public class Assignment4App {
 	// Strings for output
 	static final String OUTPUT_FILE = "a4_time_stamps.txt";
-	static final int ELEMENTS_SIZE = 100;
+
+	
+	
+	public int[] generateSearchArray(int size) {
+		Random rand = new Random(); 
+		int[] searchArray = new int[size];
+		for (int i = 0; i < size; i++) {
+			
+		}
+		return searchArray;
+	}
 	
 	public static void main(String[] args) {
 		
-		// Generating a set of distinct numbers for the elements array
-		int[] elements = new int[ELEMENTS_SIZE];
-		Random rand = new Random();     												
-		Set<Integer> distinctNumbers = new HashSet<>();
-		while (distinctNumbers.size() < ELEMENTS_SIZE -1) distinctNumbers.add(rand.nextInt(5001));	// Bound is exclusive so this generate integers [0,5000]
-		elements = distinctNumbers.stream().mapToInt(Integer::intValue).toArray();						
-		elements[99] = 5001;																		// Last cell in elements array is 5001 as described in the assignment specification
+		int[] elements = ArrayGenerator.generateElementsArray();
+		int[] searchArray;
 		
 		
 		System.out.println(Arrays.toString(elements));
@@ -26,10 +36,31 @@ public class Assignment4App {
 		
 		System.out.println("HASHBROWNS!");
 		
+		searchArray = ArrayGenerator.generateSearchArray(10);
+		System.out.println(Arrays.toString(searchArray));
+		
 		long start = System.nanoTime();
 		long end = System.nanoTime();
 		long time = end - start;
 		
+		try {
+            FileWriter fileWriter = new FileWriter(OUTPUT_FILE);
+            PrintWriter printWriter = new PrintWriter(fileWriter);
+            
+            
+            
+            
+            
+            
+            
+            fileWriter.close();
+            printWriter.close();
+		} catch (IOException e) {
+            e.printStackTrace();
+        }
+		
 	}	// End of Main
+	
+
 	
 }	// End of Class
