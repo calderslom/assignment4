@@ -24,6 +24,7 @@ public class Assignment4App {
 	public static void main(String[] args) {
 		int[] elements = ArrayGenerator.generateElementsArray();
 		int[] searchArray;
+		long sequentialStart, sequentialEnd, sequentialTotal, binaryStart, binaryEnd, binaryTotal, hashStart, hashEnd, hashTotal;
 		boolean moreToSearch;
 		int index;
 		
@@ -31,30 +32,33 @@ public class Assignment4App {
 		
 		System.out.println("HASHBROWNS!");
 			
-		int jag;
+		
 		try {
             FileWriter fileWriter = new FileWriter(OUTPUT_FILE);
             PrintWriter writer = new PrintWriter(fileWriter);
-           
-            searchArray = ArrayGenerator.generateSearchArray(1000);
     		
     		
     		// Implement sequential search of Arrays
-    		long start = System.nanoTime();
-    		for (int element : elements) {
-    			moreToSearch = true;
-    			index = 0;
-    			while (moreToSearch && index < searchArray.length) {
-    				if (element == searchArray[index]) {
-    					System.out.println("Found one at " + index);
-    					moreToSearch = false;
-    				}
-    				index++;
-    			}
+    		
+    		for (int n = MIN; n <= MAX; n++) {									// This is the loop that iterates through arrays of length n where 1000<= n <= 1,000,000
+    			searchArray = ArrayGenerator.generateSearchArray(n);
+    			sequentialStart = System.nanoTime();							// Begin measuring search time for the nth iteration of the searchArray
+        		for (int element : elements) {
+        			moreToSearch = true;
+        			index = 0;
+        			while (moreToSearch && index < searchArray.length) {
+        				if (element == searchArray[index]) {
+        					//System.out.println("Found one at " + index);
+        					moreToSearch = false;
+        				}
+        				index++;
+        			}
+        		}
+        		sequentialEnd = System.nanoTime();								// Search for this array iteration finished
+        		sequentialTotal = sequentialEnd - sequentialStart;
+        		writer.println(searchArray.length + "\t" + sequentialTotal);
+        		searchArray = null;												// dereferencing the array to make it a candidate for garbage collection
     		}
-    		long end = System.nanoTime();
-    		long time = end - start;
-    		writer.print(searchArray.length + "\t" + time);
             
             
             
