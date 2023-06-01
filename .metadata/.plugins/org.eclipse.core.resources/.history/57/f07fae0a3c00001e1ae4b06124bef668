@@ -18,8 +18,6 @@ import java.util.Set;
  */
 public class Assignment4App {
 	static final String OUTPUT_FILE = "a4_time_stamps.txt";
-	static final int MIN = 1000;
-	static final int MAX = 1000000;
 	
 	public static void main(String[] args) {
 		int[] elements = ArrayGenerator.generateElementsArray();
@@ -45,10 +43,7 @@ public class Assignment4App {
     			moreToSearch = true;
     			index = 0;
     			while (moreToSearch && index < searchArray.length) {
-    				if (element == searchArray[index]) {
-    					System.out.println("Found one at " + index);
-    					moreToSearch = false;
-    				}
+    				if (element == searchArray[index]) moreToSearch = false;
     				index++;
     			}
     		}

@@ -13,13 +13,11 @@ import java.util.Set;
 /**
  * 
  * This is the class that executes a multitude of search algorithms and outputs the timed results of those 
- * searches to a text file in the working directory named a4_time_stamps.txt. The file is rewritten after every execution of the program.
+ * searches to a text file in the working directory named a4_time_stamps.txt
  * 
  */
 public class Assignment4App {
 	static final String OUTPUT_FILE = "a4_time_stamps.txt";
-	static final int MIN = 1000;
-	static final int MAX = 1000000;
 	
 	public static void main(String[] args) {
 		int[] elements = ArrayGenerator.generateElementsArray();
@@ -35,25 +33,22 @@ public class Assignment4App {
 		try {
             FileWriter fileWriter = new FileWriter(OUTPUT_FILE);
             PrintWriter writer = new PrintWriter(fileWriter);
-           
-            searchArray = ArrayGenerator.generateSearchArray(1000);
+            
+            long start = System.nanoTime();
+            searchArray = ArrayGenerator.generateSearchArray(10);
+    		long end = System.nanoTime();
+    		long time = end - start;
     		
     		
     		// Implement sequential search of Arrays
-    		long start = System.nanoTime();
     		for (int element : elements) {
     			moreToSearch = true;
     			index = 0;
-    			while (moreToSearch && index < searchArray.length) {
-    				if (element == searchArray[index]) {
-    					System.out.println("Found one at " + index);
-    					moreToSearch = false;
-    				}
-    				index++;
+    			while (moreToSearch) {
+    				
     			}
     		}
-    		long end = System.nanoTime();
-    		long time = end - start;
+    		
     		writer.print(searchArray.length + "\t" + time);
             
             
