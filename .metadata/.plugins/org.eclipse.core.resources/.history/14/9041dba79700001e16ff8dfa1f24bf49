@@ -31,7 +31,7 @@ public class Assignment4App {
 		
 		System.out.println("HASHBROWNS!");
 			
-		int jag;
+		
 		try {
             FileWriter fileWriter = new FileWriter(OUTPUT_FILE);
             PrintWriter writer = new PrintWriter(fileWriter);
