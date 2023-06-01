@@ -59,7 +59,7 @@ public class Assignment4App {
             
             
             
-            System.out.println("Program Terminating");
+            
             fileWriter.close();
             writer.close();
 		} catch (IOException e) {
@@ -67,5 +67,7 @@ public class Assignment4App {
         }
 		
 	}	// End of Main
+	
+
 	
 }	// End of Class
