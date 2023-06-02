@@ -22,7 +22,7 @@ import java.util.Set;
  * 
  */
 public class Assignment4App {
-	static final String OUTPUT_FILE = "a4_time_stampssssssss.txt";
+	static final String OUTPUT_FILE = "a4_time_stamps.txt";
 	static final int MIN = 1000;
 	static final int MAX = 999000;
 	
@@ -33,19 +33,22 @@ public class Assignment4App {
 		long sequentialStart, sequentialEnd, sequentialTotal, binaryStart, binaryEnd, binaryTotal, hashStart, hashEnd, hashTotal;
 		boolean moreToSearch;
 		int index;
-			
+		System.out.println("The results of the search expiriment are written to the " + OUTPUT_FILE + " in your working directory.\n");
 		
 		try {
             // Creating objects for output
 			FileWriter fileWriter = new FileWriter(OUTPUT_FILE);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-    		// Implement sequential search of Arrays
+            System.out.print("The arrangement of data in the output file is as follows -\n");
+            System.out.println("\t\t\t\t\t\t\t\tArray Length:\tSequential Search:\tBinary Search:\n");
     		
-    		for (int n = MIN; n <= 1004; n++) {										// This is the loop that iterates through arrays of length n where 1000<= n <= 1,000,000
+            // Start of Sequential & Binary Search
+    		for (int n = MIN; n <= 10000; n++) {										// This is the loop that iterates through arrays of length n where 1000<= n <= 1,000,000
+    			// Start of Sequential search
     			searchArray = IntegerFileReader.returnArray(n);						// Creates an array based on values from the input file (this keeps arrays consistent across all searches)
     			//System.out.println(searchArray.length);
     			//System.out.println(Arrays.toString(searchArray));
-    			sequentialStart = System.nanoTime();								// Begin measuring search time for the nth iteration of the searchArray
+    			sequentialStart = System.nanoTime();								// START sequential search for this array iteration 
         		for (int element : elements) {
         			moreToSearch = true;
         			index = 0;
@@ -56,13 +59,24 @@ public class Assignment4App {
         				index++;
         			}
         		}
-        		sequentialEnd = System.nanoTime();								// Search for this array iteration finished
+        		sequentialEnd = System.nanoTime();									// FINISH sequential search for this array iteration finished
         		sequentialTotal = sequentialEnd - sequentialStart;
-        		bufferedWriter.write(n + "\t" + sequentialTotal + "\n");
+
+        		QuickSort.quickSort(searchArray);									// Sorting the search array to prepare for Binary Search
+        		//System.out.println(Arrays.toString(searchArray));
+        		binaryStart = System.nanoTime();									// START binary search for this array iteration
+        		for (int element : elements) {
+        			BinarySearch.searchArray(element, searchArray);					
+//        			System.out.println("Element = " + element);
+//        			int i = BinarySearch.searchArray(element, searchArray);
+//        			if(i != -1) System.out.println(searchArray[i]);
+        		}
+        		binaryEnd = System.nanoTime();										// END binary search for this array iteration
+        		binaryTotal = binaryEnd - binaryStart;
+        		bufferedWriter.write(n + "\t" + sequentialTotal + "\t" + binaryTotal + "\n");
     		}
             System.out.println("Program Terminating");
-            
-            
+
             bufferedWriter.flush(); 
 			bufferedWriter.close();
 			fileWriter.close();

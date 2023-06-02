@@ -14,6 +14,7 @@ package assignment4;
 
 
 public class QuickSort {
+	
     public static void quickSort(int[] array) {
         if (array == null || array.length == 0) {						
             return;
