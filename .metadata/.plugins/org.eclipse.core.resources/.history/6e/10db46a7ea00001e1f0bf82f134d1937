@@ -1,0 +1,19 @@
+package assignment4;
+
+import java.io.IOException;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		ValueGenerator.generateSearchArray();
+		int[] myArray = IntegerFileReader.returnArray();
+		for (int i = 0; i< myArray.length; i++) {
+			System.out.println(i + " = " + myArray[i]);
+		}
+		
+	}
+	
+	
+
+}

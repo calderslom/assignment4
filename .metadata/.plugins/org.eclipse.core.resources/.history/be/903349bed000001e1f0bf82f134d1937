@@ -1,0 +1,16 @@
+package assignment4;
+
+public class ValueGenerator {
+	static final String OUTPUT_FILE = "a4app.txt";
+	/**
+	 * Generates and populates an array with random integers.
+	 * 
+	 * @param size the size of the array to be populated
+	 * @return array of integers
+	 */
+	public static void generateSearchArray(int size) {
+		for (int i = 0; i < size; i++) searchArray[i] = rand.nextInt(5001);
+		return searchArray;
+	}
+	
+}

@@ -1,0 +1,36 @@
+package assignment4;
+
+import java.io.IOException;
+import java.util.Random;
+
+public class Test {
+
+	public static void main(String[] args) {
+
+		
+
+//		ValueGenerator.generateSearchArray();
+//		int[] myArray = IntegerFileReader.returnArray();
+//		for (int i = 0; i< myArray.length; i++) {
+//			System.out.println(i + " = " + myArray[i]);
+//		}
+		
+		Random rand = new Random();
+		int[] arr = new int[50];
+		
+		for (int i = 0; i < 50; i ++) {
+			arr[i] = rand.nextInt(100);
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+	} // end of main
+	
+	
+
+} // end of class
