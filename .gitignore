@@ -188,3 +188,4 @@ atlassian-ide-plugin.xml
 .tool-versions
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse
+*.xmi
