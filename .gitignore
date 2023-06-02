@@ -9,3 +9,182 @@
 *.class
 *.log
 .metadata/.plugins/org.eclipse.m2e.logback.configuration/0.log
+
+# Created by https://www.toptal.com/developers/gitignore/api/eclipse
+# Edit at https://www.toptal.com/developers/gitignore?templates=eclipse
+
+### Eclipse ###
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# CDT- autotools
+.autotools
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# Annotation Processing
+.apt_generated/
+.apt_generated_test/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
+
+# Uncomment this line if you wish to ignore the project description file.
+# Typically, this file would be tracked if it contains build/dependency configurations:
+#.project
+
+### Eclipse Patch ###
+# Spring Boot Tooling
+.sts4-cache/
+
+# Gradle
+# ------
+.gradle
+/build
+/*/build
+/*/*/build
+/*/*/*/build
+/*/*/*/*/build
+/*/docs/src/samples/**/build
+/*/docs/src/snippets/**/build
+/*/internal-android-performance-testing/build-android-libs
+test-splits/
+/gradle/verification-keyring.gpg
+
+# IDEA
+# ----
+!/.idea
+/.idea/*
+!/.idea/codeStyles
+!/.idea/inspectionProfiles
+!/.idea/icon.png
+!/.idea/icon_dark.png
+*/**/.idea
+*/**/.shelf
+.shelf
+/*.iml
+/*/*.iml
+/*/*/*.iml
+/*/*/*/*.iml
+/*/*/*/*/*.iml
+/out
+/*/out
+/*/*/out
+/*/*/*/out
+/*/*/*/*/out
+/.teamcity/target
+/gradle.ipr
+/gradle.iws
+
+# Eclipse
+# -------
+*.classpath
+*.project
+*.settings
+/bin
+/subprojects/*/bin
+atlassian-ide-plugin.xml
+.metadata/
+
+# NetBeans
+# --------
+.nb-gradle
+.nb-gradle-properties
+
+# Vim
+# ---
+*.sw[nop]
+
+# Emacs
+# -----
+*~
+\#*\#
+.\#*
+
+# Textmate
+# --------
+.textmate
+
+# Sublime Text
+# ------------
+*.sublime-*
+
+# jEnv
+# ----
+.java-version
+
+# macOS
+# ----
+.DS_Store
+
+# HPROF
+# -----
+*.hprof
+
+# Work dirs
+# ---------
+/incoming-distributions
+/intTestHomeDir
+
+# Logs
+# ----
+/*.log
+
+# Thread dumps for troubleshooting
+*.threaddump
+# ps output for cleaning up leaking Java processes
+*.psoutput
+
+# oh-my-zsh gradle plugin
+.gradletasknamecache
+
+# Added GE support maven support to the maven build in .teamcity, per the GE docs, this dir is NOT to be committed
+.teamcity/.mvn/.gradle-enterprise/
+/discoclient.properties
+
+# Ignore local configuration files for asdf, allowing the JDK to be configured for project (https://asdf-vm.com)
+.tool-versions
+
+# End of https://www.toptal.com/developers/gitignore/api/eclipse
