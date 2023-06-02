@@ -1,0 +1,24 @@
+package assignment4;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
+public class ValueGenerator {
+	static final String OUTPUT_FILE = "a4app.txt";
+	static final int MIN = 1000;
+	static final int MAX = 1000000;
+	/**
+	 * Generates and populates an array with random integers.
+	 * 
+	 * @param size the size of the array to be populated
+	 * @return array of integers
+	 */
+	public static void generateSearchArray(int size) {
+        FileWriter fileWriter = new FileWriter(OUTPUT_FILE);
+		BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+		Random rand = new Random();
+		for (int i = 0; i < size; i++) searchArray[i] = rand.nextInt(5001);
+
+	}
+	
+}

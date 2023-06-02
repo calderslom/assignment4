@@ -1,0 +1,17 @@
+package assignment4;
+
+import java.io.IOException;
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			ValueGenerator.generateSearchArray();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

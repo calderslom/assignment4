@@ -1,0 +1,26 @@
+package assignment4;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class IntegerFileReader {
+	
+    public static int[] returnArray(String filename) {
+        int[] array = new int[999000];
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            int index = 0;
+            while ((line = reader.readLine()) != null && index < array.length) {
+                int value = Integer.parseInt(line);
+                array[index] = value;
+                index++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return array;
+    }
+}
+

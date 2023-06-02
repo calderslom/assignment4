@@ -1,0 +1,30 @@
+package assignment4;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Random;
+
+public class ValueGenerator {
+	static final String OUTPUT_FILE = "searchValues.txt";
+	static final int MIN = 1000;
+	static final int MAX = 1000000;
+	/**
+	 * Generates and populates an array with random integers.
+	 * 
+	 * @param size the size of the array to be populated
+	 * @return array of integers
+	 * @throws IOException 
+	 */
+	public static void generateSearchArray() throws IOException {
+        FileWriter fileWriter = new FileWriter(OUTPUT_FILE);
+		BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+		Random rand = new Random();
+		for (int i = MIN; i <= MAX; i++) {
+			bufferedWriter.write(rand.nextInt(5001));
+			bufferedWriter.newLine();
+		}
+
+	}
+	
+}

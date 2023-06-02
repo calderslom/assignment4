@@ -1,0 +1,33 @@
+package assignment4;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Random;
+
+public class ValueGenerator {
+	static final String OUTPUT_FILE = "searchValues2.txt";
+	static final int MIN = 1000;
+	static final int MAX = 1000000;
+
+	
+	public static void generateSearchArray() {
+        FileWriter fileWriter;
+		try {
+			fileWriter = new FileWriter(OUTPUT_FILE);
+			BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+			Random rand = new Random();
+			for (int i = MIN; i < MAX; i++) {
+				bufferedWriter.write(""+rand.nextInt(5001));
+				bufferedWriter.newLine();
+			}
+			bufferedWriter.flush(); // Flush the buffered writer to ensure all data is written to the file
+			bufferedWriter.close();
+			fileWriter.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+}
