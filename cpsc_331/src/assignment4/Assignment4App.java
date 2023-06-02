@@ -39,9 +39,9 @@ public class Assignment4App {
             // Creating objects for output
 			FileWriter fileWriter = new FileWriter(OUTPUT_FILE);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-    		// Implement sequential search of Arrays
-    		
-    		for (int n = MIN; n <= 1004; n++) {										// This is the loop that iterates through arrays of length n where 1000<= n <= 1,000,000
+
+    		// This iterates through every Array Size from 1000 to 1,000,000
+    		for (int n = MIN; n <= MAX; n++) {										// This is the loop that iterates through arrays of length n where 1000<= n <= 1,000,000
     			searchArray = IntegerFileReader.returnArray(n);						// Creates an array based on values from the input file (this keeps arrays consistent across all searches)
     			//System.out.println(searchArray.length);
     			//System.out.println(Arrays.toString(searchArray));
