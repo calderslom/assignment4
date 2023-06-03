@@ -192,3 +192,9 @@ atlassian-ide-plugin.xml
 *.ini
 .metadata/.log
 .metadata/.log
+*.snap
+*.resources
+*.snap
+*.xml
+*.snap
+*.snap
