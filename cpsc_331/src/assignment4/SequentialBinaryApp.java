@@ -66,7 +66,7 @@ public class SequentialBinaryApp {
             bufferedWriter.flush(); 
 			bufferedWriter.close();
 			fileWriter.close();
-			System.out.println("Program Terminating");
+			System.out.println("\nProgram Terminating");
 		} catch (IOException e) {
             e.printStackTrace();
         }

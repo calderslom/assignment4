@@ -19,7 +19,7 @@ public class BinaryHashApp {
 	static final int MAX = 1000000;
 	
 	public static void main(String[] args) {
-		//ValueGenerator.generateSearchValues();										// Generates a file with all the values we will use in the search array (this ensures we use the same values for all tests)
+		//ValueGenerator.generateSearchValues();											// Generates a file with all the values we will use in the search array (this ensures we use the same values for all tests)
 		int[] elements = ArrayGenerator.generateElementsArray();							
 		int[] searchArray;
 		long binaryStart, binaryEnd, binaryTotal, hashStart, hashEnd, hashTotal;
@@ -30,35 +30,41 @@ public class BinaryHashApp {
 			FileWriter fileWriter = new FileWriter(OUTPUT_FILE);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
             System.out.println("The arrangement of data in the output file is as follows -");
-            System.out.println(OUTPUT_FILE + " ---->   Array Length:\tBinary Search:\tHash Search:");
+            System.out.println("\tArray Length:\tBinary Search:\tHash Search:");
     			
     			// Start of Hash Search and Sequential Search
 	    		
 	    		for (int n = MIN; n <= MAX; n+= 1000) {
-	    			binaryStart = System.nanoTime();									// START binary search for this array iteration
 	    			searchArray = IntegerFileReader.returnArray(n);						// Creates an array based on values from the input file (this keeps arrays consistent across all searches and was recommended by Dr. Kawash)
-	    			for (int element : elements) {
-	    				BinarySearch.searchArray(element, searchArray);					
-	    			}
-	    			binaryEnd = System.nanoTime();										// END binary search for this array iteration
-	        		binaryTotal = binaryEnd - binaryStart;
-	        		
 	        		// Add hash table population and search here
 	        		hashStart = System.nanoTime();
 	    			for (int element : elements) {
-	    								
+	 
 	    			}
 	    			hashEnd = System.nanoTime();
 	    			hashTotal = hashEnd - hashStart;
 	    			
+	    			
+	    			QuickSort.quickSort(searchArray);									// Sorting the search array to prepare for Binary Search
+	        		binaryStart = System.nanoTime();									// START binary search for this array iteration
+	        		for (int element : elements) {
+	        			BinarySearch.searchArray(element, searchArray);					
+	        		}
+	        		binaryEnd = System.nanoTime();										// END binary search for this array iteration
+	        		binaryTotal = binaryEnd - binaryStart;
+	        		
+
+	    			
 	    			bufferedWriter.write(n + "\t" + binaryTotal + "\t" + hashTotal + "\n");
+	    			searchArray = null;
 	    		}
     		
-            System.out.println("Program Terminating");
+            
             
             bufferedWriter.flush(); 
 			bufferedWriter.close();
 			fileWriter.close();
+			System.out.println("\nProgram Terminating");
 		} catch (IOException e) {
             e.printStackTrace();
         }
