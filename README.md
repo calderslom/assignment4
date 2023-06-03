@@ -9,8 +9,8 @@ Comparing the running times of linear search, binary search, and searching a has
 
 #### To-Do List:
 - [X] Initialize the project workspace (completed by @calderslom)
-- [ ] Implement Sort
-- [ ] Implement Binary Search
+- [X] Implement Sort (completed by @calderslom) - Used the quicksort algorithm
+- [X] Implement Binary Search (completed by @calderslom)
 - [ ] Implement Hash Table population
 - [ ] Implement Hash Table Search
 - [ ] Graph runtimes of Sequential vs Binary Search
