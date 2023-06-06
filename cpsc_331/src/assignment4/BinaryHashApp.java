@@ -18,7 +18,7 @@ public class BinaryHashApp {
 	static final int MIN = 1000;
 	static final int MAX = 1000000;
 	
-	public static void main(String[] args) {
+	public static <T> void main(String[] args) {
 		//ValueGenerator.generateSearchValues();											// Generates a file with all the values we will use in the search array (this ensures we use the same values for all tests)
 		int[] elements = ArrayGenerator.generateElementsArray();							
 		int[] searchArray;
@@ -34,17 +34,17 @@ public class BinaryHashApp {
     			
     			// Start of Hash Search and Sequential Search
 	    		
-	    		for (int n = MIN; n <= MAX; n+= 1000) {
+	    		for (int n = MIN; n <= MAX; n+= 10000) {								//Changed to 10000 as per TA suggestion
 	    			searchArray = IntegerFileReader.returnArray(n);						// Creates an array based on values from the input file (this keeps arrays consistent across all searches and was recommended by Dr. Kawash)
 	        		// Add hash table population and search here
-					HashTable hashTable = new HashTable();
+					HashTable<T> hashTable = new HashTable<T>();
 	        		hashStart = System.nanoTime();
 	    			for (int element : elements) {
-						hashTable.search(element);
+						hashTable.contains(element);
 	    			}
 	    			hashEnd = System.nanoTime();
 	    			hashTotal = hashEnd - hashStart;
-	    			
+	    			bufferedWriter.write(n + " hash time\t" + hashTotal + "\n");
 	    			
 	    			QuickSort.quickSort(searchArray);									// Sorting the search array to prepare for Binary Search
 	        		binaryStart = System.nanoTime();									// START binary search for this array iteration
