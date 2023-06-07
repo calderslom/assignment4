@@ -4,7 +4,7 @@ package assignment4;
  * Implementation of the Hash function described in CPSC 331 Assignment 4.
  * <p>
  * 
- * @author 
+ * @author Calder Sloman
  *
  */
 

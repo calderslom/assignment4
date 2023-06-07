@@ -2,18 +2,17 @@ package assignment4;
 
 public class HashableInteger implements Hashable {
 
-	private Integer value;
-	private int p;
+	private Integer key;
 	
 	public HashableInteger(int n) {
-		this.value = new Integer(n);
+		this.key = new Integer(n);
 	}
 	
 	public Integer key() {
-		return this.value;
+		return this.key;
 	}
 	
 	public boolean Comparable(int x) {
-		return x == this.value;
+		return x == this.key;
 	}
 }
