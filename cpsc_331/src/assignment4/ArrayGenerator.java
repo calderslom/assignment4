@@ -25,16 +25,16 @@ public class ArrayGenerator {
 		return elements;
 	}
 	
-//	/**
-//	 * Generates and populates an array with random integers.
-//	 * 
-//	 * @param size the size of the array to be populated
-//	 * @return array of integers
-//	 */
-//	public static int[] generateSearchArray(int size) {
-//		int[] searchArray = new int[size];
-//		for (int i = 0; i < size; i++) searchArray[i] = rand.nextInt(5001);
-//		return searchArray;
-//	}
+	/**
+	 * Generates and populates an array with random integers.
+	 * 
+	 * @param size the size of the array to be populated
+	 * @return array of integers
+	 */
+	public static int[] generateSearchArray(int size) {
+		int[] searchArray = new int[size];
+		for (int i = 0; i < size; i++) searchArray[i] = rand.nextInt(5001);
+		return searchArray;
+	}
 	
 }

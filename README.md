@@ -3,18 +3,25 @@
 ### Project Description:
 Comparing the running times of linear search, binary search, and searching a hash table on the same set of data.
 
+###
+Please note that this project operates slightly differently than the assignment description.
+Under the direction of Dr. Kawash, a text files is populated with random integers to be used in the search array (this is done by the ValueGenerator class).
+This way, all search values remain consistent across all tests. The IntegerFileReader class then handles generating search arrays based on these static values.
+This also means that the searchArray does not to be dereferenced and repopulated each loop, which in turn means that the Hash Table only has to have values
+added to it every iteration, rather than be cleared and repopulated.
+
 ###### Contributors:
  - Sloman, Calder
  - Kalin, Carlene
 
 #### To-Do List:
 - [X] Initialize the project workspace (completed by @calderslom)
-- [ ] Implement Sort
-- [ ] Implement Binary Search
-- [ ] Implement Hash Table population
-- [ ] Implement Hash Table Search
-- [ ] Graph runtimes of Sequential vs Binary Search
-- [ ] Graph runtimes of Binary Search vs Hash Table Lookup
+- [X] Implement Sort (completed by @calderslom)
+- [X] Implement Binary Search (completed by @calderslom)
+- [X] Implement Hash Table population (completed by @calderslom)
+- [X] Implement Hash Table Search (completed by @calderslom)
+- [X] Graph runtimes of Sequential vs Binary Search (completed by @calderslom)
+- [X] Graph runtimes of Binary Search vs Hash Table Lookup (completed by @calderslom)
 
 
 ###
