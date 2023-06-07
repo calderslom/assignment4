@@ -3,7 +3,14 @@ package assignment4;
 import java.util.LinkedList;
 import java.util.ListIterator;
 import java.lang.Math;
-
+/**
+ * HashTable for Assignment 4. This uses a modified contains() method which searches the linked list
+ * associated with a specific index in the Hash Table for matching key values (rather than matching objects).
+ * This modification is necessary to comply with assignment specifications, i.e. searching for values that match those in the "elements array"
+ * 
+ * @author Calder Sloman
+ * @author Carlene Kalin
+ */
 class HashTable<T extends Hashable> implements HashTableInterface<T> {
 	private int size;
     private LinkedList<T>[] table;
@@ -27,12 +34,26 @@ class HashTable<T extends Hashable> implements HashTableInterface<T> {
         for (int i = 0; i < size; i++) table[i] = null;
     }
 
+    /**
+     * adds an item to the hashtable
+     *
+     * @preconsidtion: none
+     * @postcondition: item is added to the appropriate chain
+     * 
+     */
     public void add(T item) {
         int index = f.hash(item.key(), this.size);
         if (table[index] == null) table[index] = new LinkedList<>();
         table[index].add(item);
     }
 
+    /**
+     * removes an item from the hashtable
+     *
+     * @preconsidtion: none
+     * @postcondition: item is deleted from the hashtable
+     * 
+     */
     public void remove(T item) {
         int index = f.hash(item.key(), this.size);
         table[index].remove(item);
@@ -53,9 +74,7 @@ class HashTable<T extends Hashable> implements HashTableInterface<T> {
         ListIterator<T> iterator = table[index].listIterator();			// creates an iterator from the Linked List at table[index]
         while (iterator.hasNext()) {									// Loops until there is no "next" object in the linked list
         	T listItem = iterator.next();								// gets the next object
-        	System.out.println("List key = " + listItem.key() + "\t Item key = " + item.key());
         	if (listItem.key().equals(item.key())) {					// compares the key of the object to the key of the item
-        		System.out.println(true);
         		return true;											// returns true if the keys match (because that's how we are supposed to decide if searchArray values match elementsArray values)
         	}
         }

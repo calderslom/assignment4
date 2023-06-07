@@ -11,7 +11,6 @@ import java.io.IOException;
  * Please note that the over documentation of code is to simplify the development process for the authors.
  * 
  * @author Calder Sloman
- * @author Carlene Kalin
  * 
  */
 public class SequentialBinaryApp {
@@ -20,14 +19,13 @@ public class SequentialBinaryApp {
 	static final int MAX = 1000000;
 	
 	public static void main(String[] args) {
-		//ValueGenerator.generateSearchValues();									// Generates a file with all the values we will use in the search array (this ensures we use the same values for all tests)
 		int[] elements = ArrayGenerator.generateElementsArray();							
 		int[] searchArray;
 		long sequentialStart, sequentialEnd, sequentialTotal, binaryStart, binaryEnd, binaryTotal;
 		boolean moreToSearch;
 		int index;
-		System.out.println("The results of the search expiriment are written to the " + OUTPUT_FILE + " in your working directory.\n");
-		
+		System.out.println("The results of the search experiment are written to the " + OUTPUT_FILE + " in your working directory.\n");
+
 		try {
             // Creating objects for output
 			FileWriter fileWriter = new FileWriter(OUTPUT_FILE);
@@ -66,7 +64,7 @@ public class SequentialBinaryApp {
             bufferedWriter.flush(); 
 			bufferedWriter.close();
 			fileWriter.close();
-			System.out.println("\nProgram Terminating");
+			System.out.println("\n Sequential and Binary Search Program Terminating\n");
 		} catch (IOException e) {
             e.printStackTrace();
         }

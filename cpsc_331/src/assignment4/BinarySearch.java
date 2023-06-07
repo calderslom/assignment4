@@ -21,10 +21,7 @@ public class BinarySearch {
 		int low = 0;
 		int high = arr.length-1;
 		int mid = 0;
-		//int i = 0;
 		while (low <= high) {
-			//System.out.println("Iteration #" +i);
-			//i++;
 			mid = (low+high)/2;
 			if (x == arr[mid]) return mid;
 			else if (x < arr[mid]) high = mid-1;

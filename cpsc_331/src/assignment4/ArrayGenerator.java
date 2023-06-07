@@ -3,7 +3,14 @@ package assignment4;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
-
+/**
+ * Contains a method for generating an array of distinct integers.
+ * 
+ * Contains a method for generating an array of random integers. It is no longer used in this assignment.
+ * 
+ * @author Calder Sloman
+ *
+ */
 public class ArrayGenerator {
 	
 	static final int ELEMENTS_SIZE = 101;			// I know it's supposed to be 100, and it is AFTER it is populated. It was literally working fine for ages with size 100, and then started having errors when I indexed elements[99] when size was 100. 

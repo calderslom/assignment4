@@ -17,6 +17,9 @@ public class HashableInteger implements Hashable {
 		this.key = new Integer(n);
 	}
 	
+	/*
+	 * Getter for the HashableIntegers key value
+	 */
 	public Integer key() {
 		return this.key;
 	}

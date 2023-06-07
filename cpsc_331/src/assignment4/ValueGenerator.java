@@ -4,11 +4,24 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
-
+/**
+ * This class is used to create static integer values that are stored in a text file in the working directory.
+ * It must be used before the IntegerFileReader class
+ * 
+ * @author Calder Sloman
+ *
+ */
 public class ValueGenerator {
 	static final String OUTPUT_FILE = "searchValues.txt";
 	static final int MAX = 999000;
-
+	
+    /**
+     * 
+     *
+     * @preconsidtion: none
+     * @postcondition: searchValues.txt is created in the working directory
+     * 
+     */
 	public static void generateSearchValues() {
         FileWriter fileWriter;
 		try {

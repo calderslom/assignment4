@@ -12,9 +12,13 @@ package assignment4;
  *
  */
 
-
 public class QuickSort {
 	
+	/**
+	 * This method returns a sorted version of the array passed in as argument
+	 * 
+	 * @param array the array to be sorted
+	 */
     public static void quickSort(int[] array) {
         if (array == null || array.length == 0) {						
             return;
@@ -22,6 +26,13 @@ public class QuickSort {
         recQuickSort(array, 0, array.length - 1);
     }
 
+    /**
+     * Recursive method for performing the QuickSort algorithm on an array
+     * 
+     * @param array the array to be sorted
+     * @param low the index of the first cell in the array
+     * @param high the index of the last cell in the array
+     */
     private static void recQuickSort(int[] array, int low, int high) {
         if (low < high) {
             int pivot = partition(array, low, high);
@@ -30,6 +41,14 @@ public class QuickSort {
         }
     }
 
+    /**
+     * The heavy lifter in the QuickSortAlgorithm.
+     * 
+     * @param array
+     * @param low
+     * @param high
+     * @return
+     */
     private static int partition(int[] array, int low, int high) {
         int pivot = array[high];
         int i = low-1;
