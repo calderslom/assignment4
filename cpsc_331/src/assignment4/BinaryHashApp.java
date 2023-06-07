@@ -2,6 +2,7 @@ package assignment4;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import assignment4.HashTable;
 
 /** 
  * This is the class that executes a multitude of search algorithms and outputs the timed results of those 
@@ -34,16 +35,17 @@ public class BinaryHashApp {
     			
     			// Start of Hash Search and Sequential Search
 	    		
-				for (int n = MIN; n <= MAX; n += 10000) {
-					searchArray = IntegerFileReader.returnArray(n);
-					HashTable<Integer> hashTable = new HashTable<>();
-					hashStart = System.nanoTime();
-					for (int element : elements) {
-						hashTable.contains(element);
-					}
-					hashEnd = System.nanoTime();
-					hashTotal = hashEnd - hashStart;
-					bufferedWriter.write(n + " hash time\t" + hashTotal + "\n");
+				for (int n = MIN; n <= MAX; n += 10000) {  //10000 as per TA's suggestion
+                searchArray = IntegerFileReader.returnArray(n);
+                HashTable<Integer> hashTable = new HashTable<>(searchArray.length);
+                hashStart = System.nanoTime();
+                for (int element : elements) {
+                    hashTable.contains(element);
+                }
+                hashEnd = System.nanoTime();
+                hashTotal = hashEnd - hashStart;
+                bufferedWriter.write(n + " hash time\t" + hashTotal + "\n");
+
 	    			
 	    			QuickSort.quickSort(searchArray);									// Sorting the search array to prepare for Binary Search
 	        		binaryStart = System.nanoTime();									// START binary search for this array iteration

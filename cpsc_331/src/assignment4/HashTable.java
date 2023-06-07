@@ -4,13 +4,13 @@ import java.util.LinkedList;
 import java.lang.Math;
 
 class HashTable<T extends Hashable> implements HashTableInterface<T> {
-    private int hashTableSize;
+    private int size;
     private LinkedList<T>[] table;
 
     public HashTable(int size) {
-        hashTableSize = 9973;
-        table = new LinkedList[hashTableSize];
-        for (int i = 0; i < hashTableSize; i++) {
+        size = 9973;
+        table = new LinkedList[size];
+        for (int i = 0; i < size; i++) {
             table[i] = new LinkedList<>();
         }
     }
@@ -22,11 +22,11 @@ class HashTable<T extends Hashable> implements HashTableInterface<T> {
         x = ((x >>> 16) ^ x) * 0x45d9f3b;
         x = ((x >>> 16) ^ x) * 0x45d9f3b;
         x = (x >>> 16) ^ x;
-        return Math.abs(x) % hashTableSize;
+        return Math.abs(x) % size;
     }
 
     public void clear() {
-        for (int i = 0; i < hashTableSize; i++) {
+        for (int i = 0; i < size; i++) {
             table[i].clear();
         }
     }
@@ -44,5 +44,8 @@ class HashTable<T extends Hashable> implements HashTableInterface<T> {
     public boolean contains(T item) {
         int index = hash(item.hashCode());
         return table[index].contains(item);
+    }
+
+    public static void hashTable(int[] searchArray) {
     }
 }
