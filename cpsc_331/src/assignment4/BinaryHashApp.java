@@ -2,6 +2,7 @@ package assignment4;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import assignment4.HashTable;
 
 /** 
  * This is the class that executes a multitude of search algorithms and outputs the timed results of those 
@@ -18,7 +19,7 @@ public class BinaryHashApp {
 	static final int MIN = 1000;
 	static final int MAX = 1000000;
 	
-	public static void main(String[] args) {
+	public static <T> void main(String[] args) {
 		//ValueGenerator.generateSearchValues();											// Generates a file with all the values we will use in the search array (this ensures we use the same values for all tests)
 		int[] elements = ArrayGenerator.generateElementsArray();							
 		int[] searchArray;
@@ -33,17 +34,26 @@ public class BinaryHashApp {
             System.out.println("\tArray Length:\tBinary Search:\tHash Search:");
     			
     			// Start of Hash Search and Sequential Search
-	    		
-	    		for (int n = MIN; n <= MAX; n+= 1000) {
-	    			searchArray = IntegerFileReader.returnArray(n);						// Creates an array based on values from the input file (this keeps arrays consistent across all searches and was recommended by Dr. Kawash)
-	        		// Add hash table population and search here
-	        		hashStart = System.nanoTime();
-	    			for (int element : elements) {
-	 
-	    			}
-	    			hashEnd = System.nanoTime();
-	    			hashTotal = hashEnd - hashStart;
-	    			
+            HashTable<HashableInteger> hashTable = new HashTable<HashableInteger>(9973, new HashFunctionA4());			// 9973 as specified in the assignment
+            int previousN = 0;																		// Must track previous value of n so that we don't add the same searchArray elements to the HashTable on every iteration
+				for (int n = MIN; n <= 3000; n += 1000) {  //10000 as per TA's suggestion
+                searchArray = IntegerFileReader.returnArray(n);
+                for (int i = previousN; i < n; i++) {
+                	hashTable.add(new HashableInteger(searchArray[i]));								// populate the hashTable
+                	//System.out.println("searchArray[" + i + "]" + " = " + searchArray[i]);		// This proves that we are indexing the search array properly to add elements to the hash table
+                }
+                previousN = n;
+                hashStart = System.nanoTime();
+                for (int element : elements) {
+                	System.out.println("Element = " + element);
+                	//if (hashTable.contains(new HashableInteger(element))) System.out.println("TRUE");
+                	//System.out.println(hashTable.contains(new HashableInteger(element)));
+                    hashTable.contains(new HashableInteger(element));
+                }
+                hashEnd = System.nanoTime();
+                hashTotal = hashEnd - hashStart;
+                //bufferedWriter.write(n + " hash time\t" + hashTotal + "\n");
+
 	    			
 	    			QuickSort.quickSort(searchArray);									// Sorting the search array to prepare for Binary Search
 	        		binaryStart = System.nanoTime();									// START binary search for this array iteration

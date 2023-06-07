@@ -4,11 +4,12 @@ package assignment4;
  *
  * @author Jalal Kawash
  * 
+ * Modified from Dr. Kawash's code. The first argument is now an integer instead of a string.
  */
 public abstract class HashFunction
 {
     /**
      * Abstract method for computing a hash value on a String
      */
-    public abstract int hash(String key, int tableSize);
+    public abstract int hash(Integer x, int tableSize);
 }

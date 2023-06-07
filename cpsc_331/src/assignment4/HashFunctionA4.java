@@ -8,7 +8,7 @@ package assignment4;
  *
  */
 
-public class HashFunctionA4 {
+public class HashFunctionA4 extends HashFunction {
 
 	/**
      * Hash function for use in Assignmnent4
@@ -17,7 +17,8 @@ public class HashFunctionA4 {
      * 
      * @return hash value
      */
-	public int hash(int x, int hashTableSize) {
+	
+	public int hash(Integer x, int hashTableSize) {
 		x = ((x >>> 16) ^ x) * 0x45d9f3b; // >>> is unsigned right shift
 		x = ((x >>> 16) ^ x) * 0x45d9f3b;
 		x = (x >>> 16) ^ x;
