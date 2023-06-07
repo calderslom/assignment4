@@ -34,17 +34,16 @@ public class BinaryHashApp {
     			
     			// Start of Hash Search and Sequential Search
 	    		
-	    		for (int n = MIN; n <= MAX; n+= 10000) {								//Changed to 10000 as per TA suggestion
-	    			searchArray = IntegerFileReader.returnArray(n);						// Creates an array based on values from the input file (this keeps arrays consistent across all searches and was recommended by Dr. Kawash)
-	        		// Add hash table population and search here
-					HashTable<T> hashTable = new HashTable<T>();
-	        		hashStart = System.nanoTime();
-	    			for (int element : elements) {
+				for (int n = MIN; n <= MAX; n += 10000) {
+					searchArray = IntegerFileReader.returnArray(n);
+					HashTable<Integer> hashTable = new HashTable<>();
+					hashStart = System.nanoTime();
+					for (int element : elements) {
 						hashTable.contains(element);
-	    			}
-	    			hashEnd = System.nanoTime();
-	    			hashTotal = hashEnd - hashStart;
-	    			bufferedWriter.write(n + " hash time\t" + hashTotal + "\n");
+					}
+					hashEnd = System.nanoTime();
+					hashTotal = hashEnd - hashStart;
+					bufferedWriter.write(n + " hash time\t" + hashTotal + "\n");
 	    			
 	    			QuickSort.quickSort(searchArray);									// Sorting the search array to prepare for Binary Search
 	        		binaryStart = System.nanoTime();									// START binary search for this array iteration
