@@ -1,9 +1,18 @@
 package assignment4;
 
+/**
+ * Defines an Integer class that can be used with Hash Tables
+ * 
+ * @author Calder Sloman
+ *
+ */
 public class HashableInteger implements Hashable {
 
 	private Integer key;
 	
+    /**
+     * Constructor for objects of class HashableInteger
+     */
 	public HashableInteger(int n) {
 		this.key = new Integer(n);
 	}
@@ -12,7 +21,4 @@ public class HashableInteger implements Hashable {
 		return this.key;
 	}
 	
-	public boolean Comparable(int x) {
-		return x == this.key;
-	}
 }

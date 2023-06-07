@@ -36,7 +36,7 @@ public class BinaryHashApp {
     			// Start of Hash Search and Sequential Search
             HashTable<HashableInteger> hashTable = new HashTable<HashableInteger>(9973, new HashFunctionA4());			// 9973 as specified in the assignment
             int previousN = 0;																		// Must track previous value of n so that we don't add the same searchArray elements to the HashTable on every iteration
-				for (int n = MIN; n <= 3000; n += 1000) {  //10000 as per TA's suggestion
+				for (int n = MIN; n <= MAX; n += 1000) {  
                 searchArray = IntegerFileReader.returnArray(n);
                 for (int i = previousN; i < n; i++) {
                 	hashTable.add(new HashableInteger(searchArray[i]));								// populate the hashTable
@@ -52,25 +52,17 @@ public class BinaryHashApp {
                 }
                 hashEnd = System.nanoTime();
                 hashTotal = hashEnd - hashStart;
-                //bufferedWriter.write(n + " hash time\t" + hashTotal + "\n");
-
-	    			
+                	// Beginning of Binary Search
 	    			QuickSort.quickSort(searchArray);									// Sorting the search array to prepare for Binary Search
 	        		binaryStart = System.nanoTime();									// START binary search for this array iteration
 	        		for (int element : elements) {
 	        			BinarySearch.searchArray(element, searchArray);					
 	        		}
 	        		binaryEnd = System.nanoTime();										// END binary search for this array iteration
-	        		binaryTotal = binaryEnd - binaryStart;
-	        		
-
-	    			
+	        		binaryTotal = binaryEnd - binaryStart;		
 	    			bufferedWriter.write(n + "\t" + binaryTotal + "\t" + hashTotal + "\n");
 	    			searchArray = null;
 	    		}
-    		
-            
-            
             bufferedWriter.flush(); 
 			bufferedWriter.close();
 			fileWriter.close();

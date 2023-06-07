@@ -61,5 +61,20 @@ class HashTable<T extends Hashable> implements HashTableInterface<T> {
         }
         return false;
     }
+    
+    /**
+     * This method prints the keys of all items in the Hash Table to console
+     */
+    public void printKeys() {
+    	for (int i = 0; i < size; i++) {
+    		if (table[i] != null) {
+    			ListIterator<T> iterator = table[i].listIterator();			// creates an iterator from the Linked List at table[index]
+    	        while (iterator.hasNext()) {
+    	        	T listItem = iterator.next();
+    	        	System.out.println(listItem.key());
+    	        }
+    		}
+    	}
+    }
 
 }
