@@ -34,17 +34,25 @@ public class BinaryHashApp {
             System.out.println("\tArray Length:\tBinary Search:\tHash Search:");
     			
     			// Start of Hash Search and Sequential Search
-	    		
-				for (int n = MIN; n <= MAX; n += 10000) {  //10000 as per TA's suggestion
+            HashTable<HashableInteger> hashTable = new HashTable<HashableInteger>(9973, new HashFunctionA4());			// 9973 as specified in the assignment
+            int previousN = 0;																		// Must track previous value of n so that we don't add the same searchArray elements to the HashTable on every iteration
+				for (int n = MIN; n <= 3000; n += 1000) {  //10000 as per TA's suggestion
                 searchArray = IntegerFileReader.returnArray(n);
-                HashTable<Integer> hashTable = new HashTable<>(searchArray.length);
+                for (int i = previousN; i < n; i++) {
+                	hashTable.add(new HashableInteger(searchArray[i]));								// populate the hashTable
+                	//System.out.println("searchArray[" + i + "]" + " = " + searchArray[i]);		// This proves that we are indexing the search array properly to add elements to the hash table
+                }
+                previousN = n;
                 hashStart = System.nanoTime();
                 for (int element : elements) {
-                    hashTable.contains(element);
+                	System.out.println("Element = " + element);
+                	//if (hashTable.contains(new HashableInteger(element))) System.out.println("TRUE");
+                	//System.out.println(hashTable.contains(new HashableInteger(element)));
+                    hashTable.contains(new HashableInteger(element));
                 }
                 hashEnd = System.nanoTime();
                 hashTotal = hashEnd - hashStart;
-                bufferedWriter.write(n + " hash time\t" + hashTotal + "\n");
+                //bufferedWriter.write(n + " hash time\t" + hashTotal + "\n");
 
 	    			
 	    			QuickSort.quickSort(searchArray);									// Sorting the search array to prepare for Binary Search

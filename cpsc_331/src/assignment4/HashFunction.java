@@ -10,5 +10,5 @@ public abstract class HashFunction
     /**
      * Abstract method for computing a hash value on a String
      */
-    public abstract int hash(String key, int tableSize);
+    public abstract int hash(Integer x, int tableSize);
 }

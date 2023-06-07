@@ -10,5 +10,5 @@ package assignment4;
 
 public interface Hashable<T extends Comparable>
 {
-    public String key();
+    public Integer key();
 }
