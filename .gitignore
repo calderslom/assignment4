@@ -176,3 +176,6 @@ atlassian-ide-plugin.xml
 .tool-versions
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse
+.metadata/.plugins/org.eclipse.core.resources/.history/1c/8013fed9f9ff001d16d2fb2be7cbb6b7
+.metadata/.plugins/org.eclipse.core.resources/.history/29/d0e27ba4fbff001d16d2fb2be7cbb6b7
+.metadata/.log
